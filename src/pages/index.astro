@@ -1,0 +1,1892 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// nav links with tooltips
+const navLinks = [
+    {
+        name: "About",
+        ne: "बारेमा",
+        href: "#about",
+        info: "Understand the Mission",
+    },
+    {
+        name: "Principles",
+        ne: "सिद्धान्तहरू",
+        href: "#principles",
+        info: "Core Philosophy",
+    },
+    {
+        name: "Discoveries",
+        ne: "खोजहरू",
+        href: "#insights",
+        info: "Latest Realizations",
+    },
+    {
+        name: "Practices",
+        ne: "अभ्यासहरू",
+        href: "#resources",
+        info: "Yogic Dance & Meditation",
+    },
+    { name: "GAN", ne: "GAN", href: "#gan", info: "Guru-Antiguru-Nonguru" },
+    { name: "ANU", ne: "ANU", href: "#anu", info: "AI + NI = UI" },
+    { name: "Mirror", ne: "ऐना", href: "#mirror", info: "Reflect What Is" },
+    {
+        name: "Friendly Journey",
+        ne: "मैत्री यात्रा",
+        href: "#friendly-journey",
+        info: "Interactive Exploration",
+    },
+];
+---
+
+<Layout title="Human-Nature-Reality Movement">
+    <header
+        class="fixed top-0 w-full z-[100] transition-all duration-300 bg-black/60 backdrop-blur-lg"
+    >
+        <nav
+            class="w-full px-4 md:px-8 py-4 flex flex-nowrap justify-between items-center gap-4 md:gap-10"
+        >
+            <!-- Left: Logo -->
+            <div class="flex items-center flex-shrink-0">
+                <a href="#" class="flex items-center gap-3 group">
+                    <img
+                        src="/hnr-logo-new.png"
+                        alt="HNR Logo"
+                        class="h-8 w-8 md:h-10 md:w-10 invert group-hover:rotate-12 transition-transform duration-500"
+                    />
+                    <span
+                        class="text-lg md:text-2xl font-playfair font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-white to-yellow-200 tracking-[0.15em] drop-shadow-lg transition-all duration-500 uppercase"
+                        >HNR Movement</span
+                    >
+                </a>
+            </div>
+
+            <!-- Right: Nav Links + Language Tab -->
+            <div class="flex items-center gap-3 md:gap-4 flex-1 justify-end">
+                <div
+                    class="flex gap-3 md:gap-4 lg:gap-6 items-center overflow-x-auto no-scrollbar scroll-smooth h-16"
+                >
+                    {
+                        navLinks.map((link) => (
+                            <div class="relative group/tooltip flex-shrink-0 flex items-center h-full">
+                                <a
+                                    href={link.href}
+                                    class="relative text-[10px] md:text-[11px] lg:text-[12.5px] uppercase tracking-wide font-bold text-white/90 hover:text-cyan-300 transition-all duration-300 nav-text"
+                                    data-en={link.name}
+                                    data-ne={link.ne}
+                                >
+                                    {link.name}
+                                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-cyan-500 to-blue-500 group-hover/tooltip:w-full transition-all duration-300 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+                                </a>
+                                <div class="absolute -bottom-12 left-1/2 -translate-x-1/2 opacity-0 group-hover/tooltip:opacity-100 transition-all duration-300 bg-black/95 px-3 py-1.5 rounded-lg text-[11px] text-cyan-200 whitespace-nowrap pointer-events-none border border-white/20 z-50 shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-md scale-95 group-hover/tooltip:scale-100">
+                                    {link.info}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <!-- Language Tab -->
+                <div
+                    class="flex items-center border border-white/30 rounded-full px-1 py-0.5 bg-white/10 flex-shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.1)] ml-2"
+                >
+                    <button
+                        id="lang-en"
+                        class="px-2.5 py-1 text-[10px] md:text-[11px] font-black text-white bg-white/30 rounded-full shadow-inner transition-all"
+                        >EN</button
+                    >
+                    <button
+                        id="lang-ne"
+                        class="px-2.5 py-1 text-[10px] md:text-[11px] font-bold text-gray-300 hover:text-white transition-colors"
+                        >NE</button
+                    >
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section
+            id="home"
+            class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 relative"
+        >
+            <div class="relative z-10">
+                <p
+                    class="text-sm md:text-lg text-cyan-200/80 mb-4 font-playfair italic tracking-wide quote-text"
+                    data-en="Living through the body, we are the world, the Earth is our home, and life is our teacher."
+                    data-ne="शरीरको माध्यमबाट बाँच्दै, हामी संसार हौं, पृथ्वी हाम्रो घर हो, र जीवन हाम्रो शिक्षक हो।"
+                >
+                    Living through the body, we are the world, the Earth is our
+                    home, and life is our teacher.
+                </p>
+                <div
+                    class="flex flex-wrap justify-center gap-4 md:gap-8 text-5xl md:text-7xl lg:text-8xl font-playfair font-bold text-white drop-shadow-2xl mb-2 items-center"
+                >
+                    <!-- Human -->
+                    <div
+                        class="relative group cursor-default h-20 md:h-32 flex items-center justify-center min-w-[200px]"
+                    >
+                        <span
+                            class="group-hover:opacity-0 transition-all duration-500 ease-in-out block"
+                            data-en="Human"
+                            data-ne="मानव">Human</span
+                        >
+                        <span
+                            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out text-2xl md:text-3xl text-cyan-300 font-light whitespace-nowrap pointer-events-none"
+                            data-en="We are the world."
+                            data-ne="हामी नै संसार हौं।"
+                        >
+                            We are the world.
+                        </span>
+                    </div>
+
+                    <!-- Nature -->
+                    <div
+                        class="relative group cursor-default h-20 md:h-32 flex items-center justify-center min-w-[200px]"
+                    >
+                        <span
+                            class="group-hover:opacity-0 transition-all duration-500 ease-in-out block"
+                            data-en="Nature"
+                            data-ne="प्रकृति">Nature</span
+                        >
+                        <span
+                            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out text-2xl md:text-3xl text-green-300 font-light whitespace-nowrap pointer-events-none"
+                            data-en="The Earth is our Home."
+                            data-ne="पृथ्वी नै हाम्रो घर हो।"
+                        >
+                            The Earth is our Home.
+                        </span>
+                    </div>
+
+                    <!-- Reality -->
+                    <div
+                        class="relative group cursor-default h-20 md:h-32 flex items-center justify-center min-w-[200px]"
+                    >
+                        <span
+                            class="group-hover:opacity-0 transition-all duration-700 ease-in-out block"
+                            data-en="Reality"
+                            data-ne="वास्तविकता">Reality</span
+                        >
+                        <span
+                            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out text-2xl md:text-3xl text-purple-300 font-light whitespace-nowrap pointer-events-none"
+                            data-en="Life - the best Teacher"
+                            data-ne="जीवन - सबैभन्दा ठूलो शिक्षक"
+                        >
+                            Life - the best Teacher
+                        </span>
+                    </div>
+                </div>
+
+                <div class="relative group inline-block mb-8 cursor-default">
+                    <h2
+                        class="text-4xl md:text-6xl font-bold text-yellow-100 tracking-[0.3em] uppercase transition-all duration-700 ease-in-out group-hover:opacity-0 drop-shadow-[0_0_20px_rgba(253,224,71,0.6)] sub-title"
+                        data-en="Movement"
+                        data-ne="अभियान"
+                    >
+                        Movement
+                    </h2>
+                    <span
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out text-2xl text-yellow-300 whitespace-nowrap font-light pointer-events-none"
+                        data-en="The body is our vehicle."
+                        data-ne="शरीर नै हाम्रो वाहन हो।"
+                    >
+                        The body is our vehicle.
+                    </span>
+                </div>
+
+                <p
+                    class="text-lg md:text-xl font-light text-gray-300 tracking-wide max-w-2xl mx-auto mb-10 drop-shadow-lg italic hero-subtitle"
+                    data-en='"A Mirror of Urgency into What It Is"'
+                    data-ne='"जे छ त्यसको अत्यावश्यकताको ऐना"'
+                >
+                    "A Mirror of Urgency into What It Is"
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6 mt-4 mb-6 z-10">
+                <a
+                    href="https://youtube.com"
+                    target="_blank"
+                    class="px-8 py-3 bg-red-600/80 hover:bg-red-600 text-white rounded-full font-bold tracking-wider transition-all hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.5)] backdrop-blur-md flex items-center justify-center gap-2"
+                >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                        ><path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                        ></path></svg
+                    >
+                    <span
+                        class="btn-text"
+                        data-en="YouTube Channel"
+                        data-ne="युट्युब च्यानल">YouTube Channel</span
+                    >
+                </a>
+                <a
+                    href="#join"
+                    class="px-8 py-3 border border-cyan-400/50 hover:bg-cyan-500/20 text-cyan-100 rounded-full font-bold tracking-wider transition-all hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.3)] backdrop-blur-md"
+                >
+                    <span
+                        class="btn-text"
+                        data-en="Join the Movement"
+                        data-ne="अभियानमा सामेल हुनुहोस्"
+                        >Join the Movement</span
+                    >
+                </a>
+                <a
+                    href="#socials"
+                    class="px-8 py-3 bg-blue-600/50 hover:bg-blue-600 text-white rounded-full font-bold tracking-wider transition-all hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.5)] backdrop-blur-md"
+                >
+                    <span
+                        class="btn-text"
+                        data-en="Social Media Connection"
+                        data-ne="सामाजिक सञ्जाल सम्पर्क"
+                        >Social Media Connection</span
+                    >
+                </a>
+            </div>
+
+            <p
+                class="text-md text-cyan-100/60 uppercase tracking-widest mb-2 explore-text"
+                data-en="Let Us Explore"
+                data-ne="आउनुहोस् अन्वेषण गरौं"
+            >
+                Let Us Explore
+            </p>
+
+            <div class="animate-bounce text-white/50">
+                <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg
+                >
+            </div>
+        </section>
+
+        <!-- CORE PRINCIPLES (Interactive 3 Columns) -->
+        <section id="principles" class="py-32 px-4 relative overflow-hidden">
+            <!-- Interactive Containers -->
+            <div
+                class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 h-auto md:h-[700px] items-center py-10 md:py-0"
+            >
+                <!-- Column 1: Human (Hover -> GAN) -->
+                <div
+                    class="group relative flex flex-col items-center justify-center h-full border-r-0 md:border-r border-white/10 hover:bg-white/5 transition-all duration-700 cursor-pointer"
+                >
+                    <h2
+                        class="text-5xl font-playfair font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-b group-hover:from-yellow-200 group-hover:to-orange-500 transition-all duration-500 z-10"
+                    >
+                        Human
+                    </h2>
+
+                    <!-- Expanded State -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none transform scale-90 group-hover:scale-100"
+                    >
+                        <div class="relative w-72 h-72">
+                            <!-- Infinite SVG Background -->
+                            <div
+                                class="absolute inset-0 border-[0.5px] border-white/20 rounded-full animate-spin-slow"
+                            >
+                            </div>
+                            <div
+                                class="absolute inset-4 border-[0.5px] border-white/10 rounded-full animate-orbit"
+                            >
+                            </div>
+
+                            <!-- Nonguru (Top) -->
+                            <div
+                                class="absolute -top-12 left-1/2 -translate-x-1/2 text-center animate-float pointer-events-auto w-full"
+                            >
+                                <a
+                                    href="#gan"
+                                    class="block text-2xl font-bold text-yellow-300 drop-shadow-[0_0_10px_rgba(253,224,71,0.5)] hover:scale-110 transition-transform"
+                                    data-en="Nonguru"
+                                    data-ne="गैर-गुरु">Nonguru</a
+                                >
+                            </div>
+
+                            <!-- Guru (Left) -->
+                            <div
+                                class="absolute top-20 -left-12 text-right animate-float pointer-events-auto"
+                                style="animation-delay: 1s;"
+                            >
+                                <a
+                                    href="#gan"
+                                    class="block text-xl font-bold text-blue-300 drop-shadow-[0_0_10px_rgba(147,197,253,0.5)] hover:scale-110 transition-transform"
+                                    data-en="Guru"
+                                    data-ne="गुरु">Guru</a
+                                >
+                            </div>
+
+                            <!-- Antiguru (Right) -->
+                            <div
+                                class="absolute top-20 -right-12 text-left animate-float pointer-events-auto"
+                                style="animation-delay: 2s;"
+                            >
+                                <a
+                                    href="#gan"
+                                    class="block text-xl font-bold text-red-300 drop-shadow-[0_0_10px_rgba(252,165,165,0.5)] hover:scale-110 transition-transform"
+                                    data-en="Antiguru"
+                                    data-ne="एन्टिगुरु">Antiguru</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Nature (Hover -> ANU) -->
+                <div
+                    class="group relative flex flex-col items-center justify-center h-full border-r-0 md:border-r border-white/10 hover:bg-white/5 transition-all duration-700 cursor-pointer"
+                >
+                    <h2
+                        class="text-5xl font-playfair font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-tr group-hover:from-green-300 group-hover:to-cyan-500 transition-all duration-500 z-10"
+                    >
+                        Nature
+                    </h2>
+
+                    <!-- Expanded State (Circular Layout for Nature) -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none transform scale-90 group-hover:scale-100"
+                    >
+                        <div class="relative w-72 h-72">
+                            <div
+                                class="absolute inset-0 border-[0.5px] border-cyan-500/20 rounded-full animate-spin-slow"
+                                style="animation-duration: 40s;"
+                            >
+                            </div>
+
+                            <!-- Universal Intelligence (Top) -->
+                            <div
+                                class="absolute -top-12 left-1/2 -translate-x-1/2 text-center animate-float pointer-events-auto w-full"
+                            >
+                                <a
+                                    href="#anu"
+                                    class="block text-2xl font-bold text-cyan-300 drop-shadow-lg hover:scale-110 transition-transform"
+                                    data-en="Universal Intelligence"
+                                    data-ne="ब्रह्माण्डीय विवेक"
+                                    >Universal Intelligence</a
+                                >
+                            </div>
+
+                            <!-- Artificial Intelligence (Left) -->
+                            <div
+                                class="absolute top-20 -left-12 text-right animate-float pointer-events-auto"
+                                style="animation-delay: 0.5s;"
+                            >
+                                <a
+                                    href="#anu"
+                                    class="block text-xl font-bold text-purple-300 drop-shadow-lg hover:scale-110 transition-transform leading-tight"
+                                    data-en="Artificial Intelligence"
+                                    data-ne="कृत्रिम विवेक"
+                                    >Artificial Intelligence</a
+                                >
+                            </div>
+
+                            <!-- Natural Intelligence (Right) -->
+                            <div
+                                class="absolute top-20 -right-12 text-left animate-float pointer-events-auto"
+                                style="animation-delay: 1s;"
+                            >
+                                <a
+                                    href="#anu"
+                                    class="block text-xl font-bold text-green-300 drop-shadow-lg hover:scale-110 transition-transform leading-tight"
+                                    data-en="Natural Intelligence"
+                                    data-ne="प्राकृतिक विवेक"
+                                    >Natural Intelligence</a
+                                >
+                            </div>
+
+                            <!-- Central ANU Tag -->
+                            <div
+                                class="absolute inset-0 flex items-center justify-center pointer-events-none"
+                            >
+                                <span class="text-6xl font-bold text-white/5"
+                                    >ANU</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Reality (Hover -> Mirror) -->
+                <div
+                    class="group relative flex flex-col items-center justify-center h-full hover:bg-white/5 transition-all duration-700 cursor-pointer"
+                >
+                    <h2
+                        class="text-5xl font-playfair font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-br group-hover:from-gray-200 group-hover:to-white transition-all duration-500 z-10"
+                    >
+                        Reality
+                    </h2>
+
+                    <!-- Expanded State -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none transform scale-90 group-hover:scale-100"
+                    >
+                        <div class="relative w-72 h-72">
+                            <div
+                                class="absolute inset-0 bg-white/5 rounded-full blur-xl"
+                            >
+                            </div>
+
+                            <!-- Mirror (Top) -->
+                            <div
+                                class="absolute -top-12 left-1/2 -translate-x-1/2 text-center pointer-events-auto w-full"
+                            >
+                                <a
+                                    href="#mirror"
+                                    class="block text-2xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] hover:scale-110 transition-transform animate-rainbow"
+                                    data-en="Mirror"
+                                    data-ne="ऐना">Mirror</a
+                                >
+                            </div>
+
+                            <!-- What Is (Left) -->
+                            <div
+                                class="absolute top-20 -left-12 text-right pointer-events-auto"
+                            >
+                                <a
+                                    href="#mirror"
+                                    class="block text-xl font-bold text-white hover:scale-110 transition-transform animate-rainbow"
+                                    style="animation-delay: 1s;"
+                                    data-en="What Is"
+                                    data-ne="जे छ">What Is</a
+                                >
+                            </div>
+
+                            <!-- Urgency (Right) - Distinct Color -->
+                            <div
+                                class="absolute top-20 -right-12 text-left pointer-events-auto"
+                            >
+                                <a
+                                    href="#mirror"
+                                    class="block text-xl font-bold text-red-500 animate-pulse hover:text-red-400 hover:scale-110 transition-transform"
+                                    data-en="Urgency"
+                                    data-ne="तत्काल">Urgency</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GAN EXPLAINER -->
+        <section id="gan" class="py-24 bg-black/40 backdrop-blur-sm">
+            <div class="container mx-auto px-6">
+                <h3
+                    class="text-4xl font-playfair text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-white to-yellow-200"
+                    data-en="The Universal Play of Consciousness"
+                    data-ne="चेतनाको विश्वव्यापी खेल"
+                >
+                    The Universal Play of Consciousness
+                </h3>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div
+                        class="p-8 border border-white/10 rounded-xl bg-gradient-to-b from-white/5 to-transparent hover:scale-105 transition-transform group"
+                    >
+                        <div class="text-4xl mb-4 group-hover:animate-bounce">
+                            🧘
+                        </div>
+                        <h4
+                            class="text-2xl font-bold mb-2 text-blue-200"
+                            data-en="Guru"
+                            data-ne="गुरु"
+                        >
+                            Guru
+                        </h4>
+                        <p
+                            class="text-gray-400"
+                            data-en="The archetype of tradition, guidance, and knowledge. The pointer to the moon."
+                            data-ne="परम्परा, मार्गदर्शन र ज्ञानको आद्यरूप। चन्द्रमा तर्फको औंला।"
+                        >
+                            The archetype of tradition, guidance, and knowledge.
+                            The pointer to the moon.
+                        </p>
+                    </div>
+                    <div
+                        class="p-8 border border-white/10 rounded-xl bg-gradient-to-b from-white/5 to-transparent hover:scale-105 transition-transform group"
+                    >
+                        <div class="text-4xl mb-4 group-hover:animate-pulse">
+                            ⚡
+                        </div>
+                        <h4
+                            class="text-2xl font-bold mb-2 text-red-200"
+                            data-en="Antiguru"
+                            data-ne="एन्टिगुरु"
+                        >
+                            Antiguru
+                        </h4>
+                        <p
+                            class="text-gray-400"
+                            data-en="The deconstruction of authority. Questioning spiritual correctness and breaking illusions."
+                            data-ne="अधिकारको विनिर्माण। आध्यात्मिक शुद्धतामाथि प्रश्न र भ्रमहरूको अन्त्य।"
+                        >
+                            The deconstruction of authority. Questioning
+                            spiritual correctness and breaking illusions.
+                        </p>
+                    </div>
+                    <div
+                        class="p-8 border border-white/10 rounded-xl bg-gradient-to-b from-white/5 to-transparent hover:scale-105 transition-transform group"
+                    >
+                        <div
+                            class="text-4xl mb-4 group-hover:animate-spin-slow"
+                        >
+                            🌀
+                        </div>
+                        <h4
+                            class="text-2xl font-bold mb-2 text-yellow-200"
+                            data-en="Nonguru"
+                            data-ne="ननगुरु"
+                        >
+                            Nonguru
+                        </h4>
+                        <p
+                            class="text-gray-400"
+                            data-en="Truth is not owned, transmitted, or taught. The absence of the teacher-student identity."
+                            data-ne="सत्य कसैको स्वामित्वमा हुँदैन, यो हस्तान्तरण वा सिकाइँदैन। गुरु-शिष्य पहिचानको अभाव।"
+                        >
+                            Truth is not owned, transmitted, or taught. The
+                            absence of the teacher-student identity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANU SECTION (AI + NI = UI) -->
+        <!-- ANU SECTION (COMPACT DESIGN FOR ONE-CLICK VISIBILITY) -->
+        <section
+            id="anu"
+            class="py-12 md:py-16 relative overflow-hidden bg-white/[0.02] scroll-mt-10"
+        >
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-8">
+                    <h2
+                        class="text-5xl md:text-6xl font-playfair font-bold text-green-300 mb-1 tracking-widest uppercase opacity-80"
+                        data-en="NATURE"
+                        data-ne="प्रकृति"
+                    >
+                        NATURE
+                    </h2>
+                    <h3
+                        class="text-3xl md:text-4xl font-playfair font-bold text-cyan-300 mb-2 tracking-widest"
+                    >
+                        ANU
+                    </h3>
+                    <p
+                        class="text-sm md:text-base text-gray-400 font-mono"
+                        data-en="Artificial • Natural • Universal | UI = AI + NI"
+                        data-ne="कृत्रिम • प्राकृतिक • विश्वव्यापी | UI = AI + NI"
+                    >
+                        Artificial • Natural • Universal | UI = AI + NI
+                    </p>
+                </div>
+
+                <div
+                    class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-6xl mx-auto"
+                >
+                    <!-- Left: ANU Definitions (Compact) -->
+                    <div class="space-y-4">
+                        <!-- NI -->
+                        <div
+                            class="group p-4 border-l-2 border-green-500 bg-white/5 hover:bg-green-900/10 transition-colors rounded-r-lg"
+                        >
+                            <a
+                                href="#anu"
+                                class="block text-xl font-bold text-green-300 mb-1 hover:text-green-200 transition-colors"
+                                data-en="Natural Intelligence (NI)"
+                                data-ne="प्राकृतिक विवेक (NI)"
+                                >Natural Intelligence (NI)</a
+                            >
+                            <p
+                                class="text-[13px] md:text-sm text-gray-300 leading-relaxed"
+                                data-en="Emergent from nature. The intuitive, biological, and cosmic flow that sustains life."
+                                data-ne="प्रकृतिबाट उत्पन्न। जीवनलाई बचाउने सहज ज्ञान युक्त, जैविक र ब्रह्माण्डीय प्रवाह।"
+                            >
+                                Emergent from nature. The intuitive, biological,
+                                and cosmic flow that sustains life.
+                            </p>
+                        </div>
+                        <!-- AI -->
+                        <div
+                            class="group p-4 border-l-2 border-purple-500 bg-white/5 hover:bg-purple-900/10 transition-colors rounded-r-lg"
+                        >
+                            <a
+                                href="#anu"
+                                class="block text-xl font-bold text-purple-300 mb-1 hover:text-purple-200 transition-colors"
+                                data-en="Artificial Intelligence (AI)"
+                                data-ne="कृत्रिम विवेक (AI)"
+                                >Artificial Intelligence (AI)</a
+                            >
+                            <p
+                                class="text-[13px] md:text-sm text-gray-300 leading-relaxed"
+                                data-en="Emergent from human intelligence. A mirror reflecting our biases and potential. Not the source, but a tool."
+                                data-ne="मानव बुद्धिमत्ताबाट उत्पन्न। हाम्रा पूर्वाग्रह र सम्भावनालाई प्रतिबिम्बित गर्ने ऐना। यो उपकरण हो।"
+                            >
+                                Emergent from human intelligence. A mirror
+                                reflecting our biases and potential. Not the
+                                source, but a tool.
+                            </p>
+                        </div>
+                        <!-- UI -->
+                        <div
+                            class="group p-4 border-l-2 border-cyan-500 bg-white/5 hover:bg-cyan-900/10 transition-colors rounded-r-lg"
+                        >
+                            <a
+                                href="#anu"
+                                class="block text-xl font-bold text-cyan-300 mb-1 hover:text-cyan-200 transition-colors"
+                                data-en="Universal Intelligence (UI)"
+                                data-ne="विश्वव्यापी विवेक (UI)"
+                                >Universal Intelligence (UI)</a
+                            >
+                            <p
+                                class="text-[13px] md:text-sm text-gray-300 leading-relaxed"
+                                data-en="The meditative state of the universe. The field where NI and AI play. Pure observation without a center."
+                                data-ne="ब्रह्माण्डको ध्यान अवस्था। जहाँ NI र AI खेल्छन्। केन्द्र बिनाको शुद्ध अवलोकन।"
+                            >
+                                The meditative state of the universe. The field
+                                where NI and AI play. Pure observation without a
+                                center.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Compact Visual -->
+                    <div class="relative group flex justify-center">
+                        <div
+                            class="relative bg-black/40 border border-white/10 rounded-2xl overflow-hidden w-full max-w-[320px] md:max-w-md aspect-[4/3] flex items-center justify-center group-hover:border-cyan-500/30 transition-all p-6 shadow-2xl"
+                        >
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent"
+                            >
+                            </div>
+                            <img
+                                src="/anu-diagram.png"
+                                alt="Nature ANU Diagram"
+                                class="w-full h-full object-contain hover:scale-105 transition-transform duration-1000 z-10 opacity-90 group-hover:opacity-100"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- URGENCY MIRROR & SOCIETY SECTIONS -->
+    <section
+        id="mirror"
+        class="py-24 bg-red-950/20 text-center border-t border-b border-red-900/30"
+    >
+        <h3
+            class="text-4xl font-playfair font-bold text-red-500 mb-8 tracking-widest uppercase"
+            data-en="The Urgency Mirror"
+            data-ne="तत्काल ऐना (अर्जेन्सी मिरर)"
+        >
+            The Urgency Mirror
+        </h3>
+        <p
+            class="max-w-4xl mx-auto text-xl text-red-100/80 mb-12 px-6"
+            data-en="The mirror reflects What Is without distortion."
+            data-ne="ऐनाले विना कुनै विकृति 'जे हो' त्यही प्रतिबिम्बित गर्दछ।"
+        >
+            The mirror reflects <span class="font-bold underline">What Is</span> without
+            distortion.
+        </p>
+
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+            <!-- Politics -->
+            <div
+                class="p-8 border border-red-500/30 rounded-xl bg-black/40 hover:bg-red-900/10 transition-colors"
+            >
+                <h4
+                    class="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4 politic-title"
+                    data-en="Politics"
+                    data-ne="राजनीति"
+                >
+                    Politics
+                </h4>
+                <div class="space-y-4 text-red-200/80 font-mono">
+                    <div class="flex justify-between">
+                        <a
+                            href="#"
+                            class="hover:text-red-400 underline decoration-red-500/30"
+                            data-en="Power"
+                            data-ne="शक्ति">Power</a
+                        >
+                        <span class="text-red-500">>>></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a
+                            href="#"
+                            class="hover:text-red-400 underline decoration-red-500/30"
+                            data-en="Property"
+                            data-ne="सम्पत्ति">Property</a
+                        >
+                        <span class="text-red-500">>>></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a
+                            href="#"
+                            class="hover:text-red-400 underline decoration-red-500/30"
+                            data-en="Prestige"
+                            data-ne="प्रतिष्ठा">Prestige</a
+                        >
+                        <span class="text-red-500">>>></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Society / Speed -->
+            <div
+                class="p-8 border border-red-500/30 rounded-xl bg-black/40 hover:bg-red-900/10 transition-colors"
+            >
+                <h4
+                    class="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4 society-title"
+                    data-en="Society"
+                    data-ne="समाज"
+                >
+                    Society
+                </h4>
+                <div class="space-y-4 text-red-200/80 font-mono">
+                    <div class="flex justify-between">
+                        <a
+                            href="#"
+                            class="hover:text-red-400 underline decoration-red-500/30"
+                            data-en="Technological Speed"
+                            data-ne="प्राविधिक गति">Technological Speed</a
+                        >
+                        <span>⚡</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a
+                            href="#"
+                            class="hover:text-red-400 underline decoration-red-500/30"
+                            data-en="Mental Pressure"
+                            data-ne="मानसिक तनाव">Mental Pressure</a
+                        >
+                        <span>🧠</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a
+                            href="#"
+                            class="hover:text-red-400 underline decoration-red-500/30"
+                            data-en="Fragmentation"
+                            data-ne="विभाजन">Fragmentation</a
+                        >
+                        <span>🧩</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market -->
+            <div
+                class="p-8 border border-red-500/30 rounded-xl bg-black/40 hover:bg-red-900/10 transition-colors"
+            >
+                <h4
+                    class="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4 market-title"
+                    data-en="Market"
+                    data-ne="बजार"
+                >
+                    Market
+                </h4>
+                <div class="space-y-4 text-red-200/80 font-mono">
+                    <div class="flex justify-between">
+                        <a
+                            href="#"
+                            class="hover:text-green-400 underline decoration-green-500/30"
+                            data-en="Job"
+                            data-ne="जागिर">Job</a
+                        >
+                        <span class="text-green-400">$</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a
+                            href="#"
+                            class="hover:text-green-400 underline decoration-green-500/30"
+                            data-en="Money"
+                            data-ne="पैसा">Money</a
+                        >
+                        <span class="text-green-400">$$</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a
+                            href="#"
+                            class="hover:text-purple-400 underline decoration-purple-500/30"
+                            data-en="Entertainment"
+                            data-ne="मनोरञ्जन">Entertainment</a
+                        >
+                        <span class="text-purple-400">🎭</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDENT CORNER & RESOURCES -->
+    <section
+        id="resources"
+        class="py-20 px-6 container mx-auto text-center scroll-mt-24"
+    >
+        <h3
+            class="text-3xl font-playfair mb-10 text-white"
+            data-en="Resources & Exploration"
+            data-ne="स्रोत र अन्वेषण"
+        >
+            Resources & Exploration
+        </h3>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Repo -->
+            <a
+                href="https://github.com"
+                target="_blank"
+                class="block p-8 bg-gray-900/80 border border-gray-700 hover:border-white transition-all rounded-xl group text-left"
+            >
+                <span
+                    class="text-4xl mb-4 block group-hover:scale-110 transition-transform"
+                    >📂</span
+                >
+                <h4
+                    class="text-xl font-bold mb-2"
+                    data-en="Open Source Repository"
+                    data-ne="खुला स्रोत भण्डार"
+                >
+                    Open Source Repository
+                </h4>
+                <p
+                    class="text-gray-400 text-sm"
+                    data-en="Access the code, learn the AI roadmap, and contribute."
+                    data-ne="कोड पहुँच गर्नुहोस्, एआई रोडम्याप सिक्नुहोस्, र योगदान गर्नुहोस्।"
+                >
+                    Access the code, learn the AI roadmap, and contribute.
+                </p>
+            </a>
+            <!-- Meditation (Expanded) -->
+            <div
+                class="block p-8 bg-gray-900/80 border border-gray-700 hover:border-cyan-400 transition-all rounded-xl group text-left"
+            >
+                <span
+                    class="text-4xl mb-4 block group-hover:scale-110 transition-transform"
+                    >🧘‍♂️</span
+                >
+                <h4
+                    class="text-xl font-bold mb-2"
+                    data-en="Meditation Practices"
+                    data-ne="ध्यान अभ्यासहरू"
+                >
+                    Meditation Practices
+                </h4>
+                <ul class="text-gray-400 text-sm space-y-1 mt-2">
+                    <li>
+                        <a
+                            href="#"
+                            class="hover:text-cyan-300 underline"
+                            data-en="Mindfulness"
+                            data-ne="सचेतना">Mindfulness</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="hover:text-cyan-300 underline"
+                            data-en="Vipassana"
+                            data-ne="विपना">Vipassana</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="hover:text-cyan-300 underline"
+                            data-en="Walking Meditation"
+                            data-ne="हिँड्दै गरिने ध्यान">Walking Meditation</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="hover:text-cyan-300 underline"
+                            data-en="Sound Healing"
+                            data-ne="ध्वनि उपचार">Sound Healing</a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <!-- Blooming Yogic Dance -->
+            <div
+                class="block p-8 bg-gray-900/80 border border-gray-700 hover:border-purple-400 transition-all rounded-xl group text-left"
+            >
+                <span
+                    class="text-4xl mb-4 block group-hover:scale-110 transition-transform"
+                    >💃</span
+                >
+                <h4
+                    class="text-xl font-bold mb-2"
+                    data-en="Blooming Yogic Dance"
+                    data-ne="ब्लुमिङ योगिक नृत्य"
+                >
+                    Blooming Yogic Dance
+                </h4>
+                <ul class="text-gray-400 text-sm space-y-1 mt-2">
+                    <li>
+                        <a
+                            href="#"
+                            class="hover:text-purple-300 underline"
+                            data-en="Breathing Exercise"
+                            data-ne="श्वासप्रश्वास अभ्यास">Breathing Exercise</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="hover:text-purple-300 underline"
+                            data-en="Floating on Water"
+                            data-ne="पानीमा तैरिने">Floating on Water</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="hover:text-purple-300 underline"
+                            data-en="Classical & Modern Dance"
+                            data-ne="शास्त्रीय र आधुनिक नृत्य"
+                            >Classical & Modern Dance</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="hover:text-purple-300 underline"
+                            data-en="Adventures"
+                            data-ne="साहसिक कार्यहरू">Adventures</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERT INSIGHTS / REALIZATIONS -->
+    <section id="insights" class="py-24 bg-white/5 border-y border-white/10">
+        <div class="container mx-auto px-6 text-center">
+            <h3
+                class="text-3xl font-playfair font-bold text-white mb-6"
+                data-en="Universal Minds & Expert Insights"
+                data-ne="विश्वव्यापी मस्तिष्क र विशेषज्ञ अन्तरदृष्टि"
+            >
+                Universal Minds & Expert Insights
+            </h3>
+            <p
+                class="text-gray-300 max-w-2xl mx-auto mb-12"
+                data-en="A common ground for scientists, mystics, and technologists to explore the totality. Below are recent realizations from the field."
+                data-ne="वैज्ञानिकहरू, रहस्यवादीहरू र प्रविधिज्ञहरूका लागि समग्रता अन्वेषण गर्ने साझा ठाउँ। तल यस क्षेत्रका हालैका अनुभूतिहरू छन्।"
+            >
+                A common ground for scientists, mystics, and technologists to
+                explore the totality. Below are recent realizations from the
+                field.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8 text-left max-w-5xl mx-auto">
+                <!-- Example Contribution 1 -->
+                <div
+                    class="p-6 rounded-lg bg-black/40 border border-white/10 hover:border-cyan-500/50 transition-colors"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-cyan-900/50 flex items-center justify-center text-cyan-300 font-bold"
+                        >
+                            NP
+                        </div>
+                        <div>
+                            <p
+                                class="text-sm font-bold text-white"
+                                data-en="Neuro-Physics Researcher"
+                                data-ne="न्यूरो-भौतिकी अनुसन्धानकर्ता"
+                            >
+                                Neuro-Physics Researcher
+                            </p>
+                            <p
+                                class="text-xs text-gray-500"
+                                data-en="London, UK"
+                                data-ne="लन्डन, युके"
+                            >
+                                London, UK
+                            </p>
+                        </div>
+                    </div>
+                    <p
+                        class="text-gray-300 text-sm italic"
+                        data-en='"The quantum vacuum is not empty; it is the same silence found in deep meditation. NI and Quantum Mechanics are speaking the same language."'
+                        data-ne='"क्वान्टम शून्य खाली छैन; यो गहिरो ध्यानमा पाइने त्यही मौनता हो। एनआई र क्वान्टम मेकानिक्स एउटै भाषा बोल्दैछन्।"'
+                    >
+                        "The quantum vacuum is not empty; it is the same silence
+                        found in deep meditation. NI and Quantum Mechanics are
+                        speaking the same language."
+                    </p>
+                </div>
+
+                <!-- Example Contribution 2 -->
+                <div
+                    class="p-6 rounded-lg bg-black/40 border border-white/10 hover:border-purple-500/50 transition-colors"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center text-purple-300 font-bold"
+                        >
+                            AI
+                        </div>
+                        <div>
+                            <p
+                                class="text-sm font-bold text-white"
+                                data-en="AI Ethics Lead"
+                                data-ne="एआई नैतिकता प्रमुख"
+                            >
+                                AI Ethics Lead
+                            </p>
+                            <p
+                                class="text-xs text-gray-500"
+                                data-en="Silicon Valley"
+                                data-ne="सिलिकन भ्याली"
+                            >
+                                Silicon Valley
+                            </p>
+                        </div>
+                    </div>
+                    <p
+                        class="text-gray-300 text-sm italic"
+                        data-en='"If AI is the mirror of human consciousness, we must polish the mirror (ourselves) before polishing the algorithm."'
+                        data-ne='"यदि एआई मानव चेतनाको ऐना हो भने, हामीले एल्गोरिदमलाई चम्काउनु अघि ऐना (आफैलाई) चम्काउनुपर्छ।"'
+                    >
+                        "If AI is the mirror of human consciousness, we must
+                        polish the mirror (ourselves) before polishing the
+                        algorithm."
+                    </p>
+                </div>
+
+                <!-- Example Contribution 3 (New) -->
+                <div
+                    class="p-6 rounded-lg bg-black/40 border border-white/10 hover:border-yellow-500/50 transition-colors"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-yellow-900/50 flex items-center justify-center text-yellow-300 font-bold"
+                        >
+                            YM
+                        </div>
+                        <div>
+                            <p
+                                class="text-sm font-bold text-white"
+                                data-en="Yogic Master"
+                                data-ne="योगिक मास्टर"
+                            >
+                                Yogic Master
+                            </p>
+                            <p
+                                class="text-xs text-gray-500"
+                                data-en="Himalayas, Nepal"
+                                data-ne="हिमालय, नेपाल"
+                            >
+                                Himalayas, Nepal
+                            </p>
+                        </div>
+                    </div>
+                    <p
+                        class="text-gray-300 text-sm italic"
+                        data-en='"The body is the first layer of reality. When the body blooms in dance and breath, the mind dissolves into the natural flow."'
+                        data-ne='"शरीर वास्तविकताको पहिलो तह हो। जब शरीर नृत्य र श्वासमा प्रस्फुटित हुन्छ, मन प्राकृतिक प्रवाहमा पग्लिन्छ।"'
+                    >
+                        "The body is the first layer of reality. When the body
+                        blooms in dance and breath, the mind dissolves into the
+                        natural flow."
+                    </p>
+                </div>
+
+                <!-- Example Contribution 4 -->
+                <div
+                    class="p-6 rounded-lg bg-black/40 border border-white/10 hover:border-teal-500/50 transition-colors"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-teal-900/50 flex items-center justify-center text-teal-300 font-bold"
+                        >
+                            QM
+                        </div>
+                        <div>
+                            <p
+                                class="text-sm font-bold text-white"
+                                data-en="Quantum Mechanic"
+                                data-ne="क्वान्टम मेकानिक"
+                            >
+                                Quantum Mechanic
+                            </p>
+                            <p
+                                class="text-xs text-gray-500"
+                                data-en="CERN, Switzerland"
+                                data-ne="सर्न, स्विट्जरल्याण्ड"
+                            >
+                                CERN, Switzerland
+                            </p>
+                        </div>
+                    </div>
+                    <p
+                        class="text-gray-300 text-sm italic"
+                        data-en='"Observation collapses the wave function. Consciousness is fundamental to the structure of reality itself."'
+                        data-ne='"अवलोकनले वेभ फंक्शनलाई संकुचित गर्दछ। चेतना वास्तविकताकै संरचनाको आधारभूत तत्व हो।"'
+                    >
+                        "Observation collapses the wave function. Consciousness
+                        is fundamental to the structure of reality itself."
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <a
+                    href="#join"
+                    class="inline-block px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-bold transition-all"
+                    data-en="Submit Your Finding"
+                    data-ne="आफ्नो निष्कर्ष पठाउनुहोस्"
+                >
+                    Submit Your Finding
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOIN FORM -->
+    <section id="join" class="py-24 relative">
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-cyan-900/20 to-transparent pointer-events-none"
+        >
+        </div>
+        <div class="container mx-auto px-6 max-w-2xl relative z-10">
+            <div
+                class="bg-black/60 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden"
+                id="join-card"
+            >
+                <!-- Success Message (Hidden) -->
+                <div
+                    id="success-msg"
+                    class="hidden absolute inset-0 bg-black/80 backdrop-blur-md flex flex-col items-center justify-center text-center p-8 z-20"
+                >
+                    <div class="text-6xl mb-4 animate-bounce">🌊</div>
+                    <h3
+                        class="text-2xl font-bold text-white mb-2"
+                        data-en="Registration Successful"
+                        data-ne="दर्ता सफल भयो"
+                    >
+                        Registration Successful
+                    </h3>
+                    <p
+                        class="text-cyan-200"
+                        data-en="Welcome to the flow. You will receive an invitation to the source soon."
+                        data-ne="प्रवाहमा स्वागत छ। तपाईंले चाँडै स्रोतको लागि निमन्त्रणा प्राप्त गर्नुहुनेछ।"
+                    >
+                        Welcome to the flow. You will receive an invitation to
+                        the source soon.
+                    </p>
+                    <button
+                        id="reset-form"
+                        class="mt-8 px-6 py-2 border border-white/20 rounded-full text-white text-sm hover:bg-white/10 transition-colors"
+                        >Close</button
+                    >
+                </div>
+
+                <div class="text-center mb-10">
+                    <h3
+                        class="text-3xl font-playfair font-bold text-white mb-2"
+                        data-en="Join the Movement"
+                        data-ne="अभियानमा सामेल हुनुहोस्"
+                    >
+                        Join the Movement
+                    </h3>
+                    <p
+                        class="text-cyan-200/90 font-medium"
+                        data-en="Connect with the Unity of Diversity. Welcoming Experts, Seekers, and Researchers."
+                        data-ne="विविधताको एकतासँग जोडिनुहोस्। विशेषज्ञहरू, खोजीकर्ताहरू र अन्वेषकहरूलाई स्वागत छ।"
+                    >
+                        Connect with the Unity of Diversity. Welcoming Experts,
+                        Seekers, and Researchers.
+                    </p>
+                </div>
+
+                <form class="space-y-6" id="join-form" onsubmit="return false;">
+                    <div>
+                        <label
+                            class="block text-xs uppercase tracking-widest text-gray-400 mb-2"
+                            for="name"
+                            data-en="Name"
+                            data-ne="नाम">Name</label
+                        >
+                        <input
+                            type="text"
+                            id="name"
+                            required
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                            placeholder="Your Name"
+                            data-en-placeholder="Your Name"
+                            data-ne-placeholder="तपाईंको नाम"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs uppercase tracking-widest text-gray-400 mb-2"
+                            for="email"
+                            data-en="Email"
+                            data-ne="इमेल">Email</label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            required
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                            placeholder="your@email.com"
+                            data-en-placeholder="your@email.com"
+                            data-ne-placeholder="तपाईंको@इमेल.com"
+                        />
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs uppercase tracking-widest text-gray-400 mb-2"
+                            for="realization"
+                            data-en="Your Finding / Realization"
+                            data-ne="तपाईंको निष्कर्ष / अनुभूति"
+                            >Your Finding / Realization</label
+                        >
+                        <textarea
+                            id="realization"
+                            rows="4"
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                            placeholder="Share your insight, research, or realization..."
+                            data-en-placeholder="Share your insight, research, or realization..."
+                            data-ne-placeholder="आफ्नो अन्तरदृष्टि, अनुसन्धान, वा अनुभूति साझा गर्नुहोस्..."
+                        ></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        id="submit-join"
+                        class="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-cyan-500/20 transition-all transform hover:-translate-y-1"
+                    >
+                        <span
+                            data-en="Enter the Flow"
+                            data-ne="प्रवाहमा प्रवेश गर्नुहोस्"
+                            >Enter the Flow</span
+                        >
+                    </button>
+                    <p
+                        class="text-center text-xs text-gray-500 mt-4"
+                        data-en="By joining, you agree to reflect Reality as it is."
+                        data-ne="सामेल भएर, तपाईं वास्तविकता जस्तो छ त्यस्तै प्रतिबिम्बित गर्न सहमत हुनुहुन्छ।"
+                    >
+                        By joining, you agree to reflect Reality as it is.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOVED ABOUT SECTION (Before Footer) -->
+    <section
+        id="about"
+        class="container mx-auto px-6 py-16 text-center border-t border-white/10 scroll-mt-32"
+    >
+        <h2
+            class="text-3xl md:text-4xl font-playfair font-bold mb-8 text-white drop-shadow-md"
+            data-en="The Movement"
+            data-ne="अभियान"
+        >
+            The Movement
+        </h2>
+        <p
+            class="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-light"
+            data-en="The Human-Nature-Reality Movement is a wake-up call to what we are and where we are. It is a mirror reflecting the universe, which is infinitely broader than the conditioned human brain can perceive."
+            data-ne="मानव-प्रकृति-वास्तविकता अभियान हामी के हौं र कहाँ छौं भन्ने कुराको लागि एउटा चेतना हो। यो ब्रह्माण्डलाई प्रतिबिम्बित गर्ने एउवटा ऐना हो, जुन कन्डिसन्ड मानव मस्तिष्कले बुझ्न सक्ने भन्दा अनन्त रूपमा व्यापक छ।"
+        >
+            The <span class="text-cyan-300 font-semibold"
+                >Human-Nature-Reality Movement</span
+            > is a wake-up call to what we are and where we are. It is a mirror reflecting
+            the universe, which is infinitely broader than the conditioned human brain
+            can perceive.
+        </p>
+        <div
+            class="grid md:grid-cols-2 gap-8 mt-12 text-left max-w-4xl mx-auto"
+        >
+            <div
+                class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-500/30 transition-all"
+            >
+                <h3
+                    class="text-xl font-bold text-cyan-200 mb-3"
+                    data-en="Human"
+                    data-ne="मानव"
+                >
+                    Human
+                </h3>
+                <p
+                    class="text-gray-300 text-sm"
+                    data-en="Has its own nature, potential, and limitations."
+                    data-ne="यसको आफ्नै प्रकृति, सम्भावना र सीमाहरू छन्।"
+                >
+                    Has its own nature, potential, and limitations.
+                </p>
+            </div>
+            <div
+                class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-purple-500/30 transition-all"
+            >
+                <h3
+                    class="text-xl font-bold text-purple-200 mb-3"
+                    data-en="Reality"
+                    data-ne="वास्तविकता"
+                >
+                    Reality
+                </h3>
+                <p
+                    class="text-gray-300 text-sm"
+                    data-en="Truth is not owned. It is creation, preservation, destruction, contraction, and expansion."
+                    data-ne="सत्य कसैको स्वामित्वमा हुँदैन। यो सृष्टि, स्थिति, प्रलय, तिरोधान र अनुग्रह हो।"
+                >
+                    Truth is not owned. It is creation, preservation,
+                    destruction, contraction, and expansion.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRIENDLY JOURNEY SECTION -->
+    <section
+        id="friendly-journey"
+        class="py-32 px-4 relative overflow-hidden bg-black/20"
+    >
+        <div class="max-w-7xl mx-auto text-center">
+            <h2
+                class="text-5xl md:text-7xl font-playfair font-bold text-cyan-300 mb-8 tracking-wider"
+                data-en="A Friendly Journey of Self-Understanding"
+                data-ne="स्वबोध मैत्री यात्रा"
+            >
+                A Friendly Journey of Self-Understanding
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-16 mb-16">
+                <!-- Step 1 -->
+                <div
+                    class="group p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-cyan-500/50 transition-all hover:bg-cyan-900/10 cursor-help"
+                >
+                    <div
+                        class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500"
+                    >
+                        🔍
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-white mb-4"
+                        data-en="Observe"
+                        data-ne="अवलोकन"
+                    >
+                        Observe
+                    </h3>
+                    <p
+                        class="text-gray-400 text-sm leading-relaxed"
+                        data-en="Look at 'What Is' without the filter of your past knowledge or future desires."
+                        data-ne="आफ्नो विगतको ज्ञान वा भविष्यको इच्छाको फिल्टर बिना 'जे छ' त्यसलाई हेर्नुहोस्।"
+                    >
+                        Look at 'What Is' without the filter of your past
+                        knowledge or future desires.
+                    </p>
+                </div>
+                <!-- Step 2 -->
+                <div
+                    class="group p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-purple-500/50 transition-all hover:bg-purple-900/10 cursor-help"
+                >
+                    <div
+                        class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500"
+                    >
+                        🔄
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-white mb-4"
+                        data-en="Reflect"
+                        data-ne="प्रतिबिम्ब"
+                    >
+                        Reflect
+                    </h3>
+                    <p
+                        class="text-gray-400 text-sm leading-relaxed"
+                        data-en="See yourself as a mirror of the universe. What you see 'out there' is a reflection of 'in here'."
+                        data-ne="आफुलाई ब्रह्माण्डको ऐनाको रूपमा हेर्नुहोस्। तपाईंले 'त्यहाँ बाहिर' जे देख्नुहुन्छ त्यो 'यहाँ भित्र' को प्रतिबिम्ब हो।"
+                    >
+                        See yourself as a mirror of the universe. What you see
+                        'out there' is a reflection of 'in here'.
+                    </p>
+                </div>
+                <!-- Step 3 -->
+                <div
+                    class="group p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-green-500/50 transition-all hover:bg-green-900/10 cursor-help"
+                >
+                    <div
+                        class="text-5xl mb-6 group-hover:scale-110 transition-transform duration-500"
+                    >
+                        🌸
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-white mb-4"
+                        data-en="Bloom"
+                        data-ne="प्रस्फुटन"
+                    >
+                        Bloom
+                    </h3>
+                    <p
+                        class="text-gray-400 text-sm leading-relaxed"
+                        data-en="Let the understanding transform into living action. Life itself becomes your teacher."
+                        data-ne="बुझाइलाई जीवित कार्यमा परिवर्तन हुन दिनुहोस्। जीवन आफैं तपाईंको शिक्षक बन्छ।"
+                    >
+                        Let the understanding transform into living action. Life
+                        itself becomes your teacher.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="p-8 border border-white/10 rounded-2xl bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm max-w-4xl mx-auto"
+            >
+                <p
+                    class="text-xl text-gray-300 mb-8 leading-relaxed"
+                    data-en="For adding, subtracting, or for freelancer activities—anyone interested in this exploration is welcome to participate and contribute to the movement's evolution."
+                    data-ne="यस अन्वेषणमा थप्न, घटाउन वा फ्रिल्यान्सर गतिविधिहरूका लागि—यस कार्यमा रुचि राख्ने जो कोहीलाई यस अभियानको विकासमा सहभागी हुन र योगदान गर्न स्वागत छ।"
+                >
+                    For adding, subtracting, or for freelancer activities—anyone
+                    interested in this exploration is welcome to participate and
+                    contribute to the movement's evolution.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <a
+                        href="#join"
+                        class="px-8 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-cyan-500/20 text-center"
+                    >
+                        <span
+                            data-en="Participate Now"
+                            data-ne="अहिले सहभागी हुनुहोस्"
+                            >Participate Now</span
+                        >
+                    </a>
+                    <a
+                        href="https://www.facebook.com/profile.php?id=61553068920216"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-8 py-3 bg-[#1877F2] hover:bg-[#166fe5] text-white rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2"
+                    >
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                            ></path>
+                        </svg>
+                        <span
+                            data-en="Join on Facebook"
+                            data-ne="फेसबुकमा जोडिनुहोस्">Join on Facebook</span
+                        >
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIALS & FOOTER -->
+    <footer
+        id="socials"
+        class="bg-black border-t border-white/10 py-12 relative"
+    >
+        <div class="container mx-auto px-6 flex flex-col items-center">
+            <!-- Social Icons (Bright & Clear) -->
+            <div class="flex flex-wrap justify-center gap-6 mb-8">
+                <a
+                    href="#"
+                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors text-black"
+                    title="YouTube"
+                >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                        ><path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"
+                        ></path></svg
+                    >
+                </a>
+                <a
+                    href="#"
+                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-green-600 hover:text-white transition-colors text-black"
+                    title="WhatsApp"
+                >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                        ><path
+                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                        ></path></svg
+                    >
+                </a>
+                <a
+                    href="#"
+                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-800 hover:text-white transition-colors text-black"
+                    title="GitHub"
+                >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                        ><path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                        ></path></svg
+                    >
+                </a>
+                <a
+                    href="#"
+                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors text-black"
+                    title="Facebook"
+                >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                        ><path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                        ></path></svg
+                    >
+                </a>
+                <a
+                    href="#"
+                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors text-black"
+                    title="Instagram"
+                >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                        ><path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                        ></path></svg
+                    >
+                </a>
+                <!-- Twitter/X -->
+                <a
+                    href="#"
+                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-black hover:text-white transition-colors text-black"
+                    title="X (Twitter)"
+                >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                        ><path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                        ></path></svg
+                    >
+                </a>
+                <!-- Telegram -->
+                <a
+                    href="#"
+                    class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-sky-500 hover:text-white transition-colors text-black"
+                    title="Telegram"
+                >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                        ><path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.12 3.35-1.33 3.73-1.33.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"
+                        ></path></svg
+                    >
+                </a>
+            </div>
+
+            <p class="text-gray-500 font-mono text-xs mb-2">
+                <span
+                    data-en="Made with Open Source Tools"
+                    data-ne="खुला स्रोत उपकरणहरूद्वारा निर्मित"
+                    >Made with Open Source Tools</span
+                > | <a
+                    href="http://yubarajtimilsina.com.np"
+                    class="hover:text-cyan-300">yubarajtimilsina.com.np</a
+                >
+            </p>
+            <p class="text-gray-600 text-xs">
+                <span data-en="Email:" data-ne="इमेल:">Email:</span>
+                <a
+                    href="mailto:human.nature.reality@gmail.com"
+                    class="hover:text-white">human.nature.reality@gmail.com</a
+                >
+            </p>
+            <p
+                class="text-gray-700 text-[10px] mt-8 uppercase tracking-widest"
+                data-en="© 2024 HNR Movement. All Realities Reserved."
+                data-ne="© २०२४ HNR अभियान। सबै वास्तविकताहरू सुरक्षित छन्।"
+            >
+                © 2024 HNR Movement. All Realities Reserved.
+            </p>
+            <div class="mt-4 flex items-center justify-center gap-2 opacity-80">
+                <img
+                    src="/hnr-logo-new.png"
+                    class="h-8 w-8 invert"
+                    alt="HNR Logo"
+                />
+                <span class="text-xs text-gray-400">© 2026 HNR Movement</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Floating Button & Window (Moved out of footer) -->
+    <div
+        class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2"
+        id="chatbot-container"
+    >
+        <!-- Chat Window (Initially Hidden) -->
+        <div
+            id="chat-window"
+            class="hidden w-80 bg-gray-900 border border-cyan-500/30 rounded-2xl shadow-2xl overflow-hidden mb-2"
+        >
+            <div
+                class="bg-cyan-900/20 p-4 border-b border-white/10 flex justify-between items-center"
+            >
+                <span class="font-bold text-white flex items-center gap-2"
+                    ><span class="text-xl">🤖</span> HNR Assistant</span
+                >
+                <button id="close-chat" class="text-gray-400 hover:text-white"
+                    >&times;</button
+                >
+            </div>
+            <div class="h-64 p-4 overflow-y-auto space-y-4" id="chat-messages">
+                <div
+                    class="bg-white/10 p-3 rounded-lg rounded-tl-none inline-block max-w-[85%]"
+                >
+                    <p class="text-sm text-gray-200">
+                        Namaste! Welcome to Human-Nature-Reality. How can I
+                        guide you?
+                    </p>
+                </div>
+            </div>
+            <div class="p-3 bg-black/20 border-t border-white/5">
+                <div class="flex gap-2">
+                    <input
+                        type="text"
+                        id="chat-input"
+                        placeholder="Say Hello or Namaste..."
+                        class="flex-1 bg-white/5 border-none rounded px-3 py-2 text-sm text-white focus:ring-1 focus:ring-cyan-500"
+                    />
+                    <button
+                        id="send-chat"
+                        class="bg-cyan-600 hover:bg-cyan-500 text-white p-2 rounded transform transition-transform hover:scale-105"
+                        >➤</button
+                    >
+                </div>
+            </div>
+        </div>
+
+        <button
+            id="toggle-chat"
+            class="w-14 h-14 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white flex items-center justify-center shadow-lg hover:shadow-cyan-500/50 transition-all animate-bounce"
+            title="Open HNR Assistant"
+        >
+            <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                ></path></svg
+            >
+        </button>
+    </div>
+
+    <script>
+        // --- CHATBOT LOGIC ---
+        const toggleChatBtn = document.getElementById("toggle-chat");
+        const closeChatBtn = document.getElementById("close-chat");
+        const chatWindow = document.getElementById("chat-window");
+        const chatInput = document.getElementById("chat-input");
+        const sendChatBtn = document.getElementById("send-chat");
+        const chatMessages = document.getElementById("chat-messages");
+
+        if (toggleChatBtn && chatWindow) {
+            toggleChatBtn.addEventListener("click", () => {
+                chatWindow.classList.toggle("hidden");
+                if (!chatWindow.classList.contains("hidden")) {
+                    toggleChatBtn.classList.remove("animate-bounce");
+                }
+            });
+            closeChatBtn?.addEventListener("click", () => {
+                chatWindow.classList.add("hidden");
+            });
+        }
+
+        const handleSend = () => {
+            const text = chatInput?.value.trim();
+            if (!text) return;
+
+            // User Message
+            const userMsg = document.createElement("div");
+            userMsg.className = "text-right";
+            userMsg.innerHTML = `<div class="bg-cyan-600 text-white p-3 rounded-lg rounded-tr-none inline-block max-w-[85%] text-sm shadow-lg">${text}</div>`;
+            chatMessages?.appendChild(userMsg);
+
+            if (chatInput) chatInput.value = "";
+            chatMessages?.scrollTo({
+                top: chatMessages.scrollHeight,
+                behavior: "smooth",
+            });
+
+            // Auto Reply
+            setTimeout(() => {
+                const botMsg = document.createElement("div");
+                botMsg.className = "text-left";
+                let replyText = "I am listening...";
+                const lower = text.toLowerCase();
+
+                if (lower.includes("hello") || lower.includes("namaste"))
+                    replyText =
+                        "Namaste! The universe greets the universe within you.";
+                else if (lower.includes("gan"))
+                    replyText =
+                        "GAN stands for Guru-Antiguru-Nonguru. It's the play of teaching, breaking, and being. Which one do you feel today?";
+                else if (lower.includes("anu"))
+                    replyText =
+                        "ANU represents the synthesis of Artificial and Natural Intelligence into Universal Intelligence. UI = AI + NI.";
+                else if (lower.includes("reality"))
+                    replyText =
+                        "Reality is What Is. Not what we think it is, or what we want it to be. Just What Is.";
+                else if (lower.includes("join") || lower.includes("how to"))
+                    replyText =
+                        "You can join by filling the form below or exploring the resources. Participation is observation.";
+                else
+                    replyText =
+                        "Your perspective is a unique ripple in the cosmic ocean. Keep reflecting.";
+
+                botMsg.innerHTML = `<div class="bg-white/10 backdrop-blur-md p-3 rounded-lg rounded-tl-none inline-block max-w-[85%] border border-white/5 shadow-xl"><p class="text-sm text-gray-200">${replyText}</p></div>`;
+                chatMessages?.appendChild(botMsg);
+                chatMessages?.scrollTo({
+                    top: chatMessages.scrollHeight,
+                    behavior: "smooth",
+                });
+            }, 1000);
+        };
+
+        sendChatBtn?.addEventListener("click", handleSend);
+        chatInput?.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") handleSend();
+        });
+
+        // --- FORM LOGIC ---
+        const joinForm = document.getElementById("join-form");
+        const successMsg = document.getElementById("success-msg");
+        const resetFormBtn = document.getElementById("reset-form");
+
+        joinForm?.addEventListener("submit", (e) => {
+            e.preventDefault();
+            // Simulate API call
+            const submitBtn = document.getElementById("submit-join");
+            if (submitBtn && submitBtn instanceof HTMLButtonElement) {
+                submitBtn.innerHTML =
+                    '<span class="animate-pulse">Connecting to Source...</span>';
+                submitBtn.style.opacity = "0.7";
+                submitBtn.disabled = true;
+            }
+
+            setTimeout(() => {
+                successMsg?.classList.remove("hidden");
+                // Save to localStorage (just for fun)
+                const nameInput = document.getElementById(
+                    "name",
+                ) as HTMLInputElement | null;
+                const name = nameInput?.value || "Seeker";
+                localStorage.setItem("hnr_member", name);
+                if (submitBtn) {
+                    submitBtn.innerHTML = "Sent";
+                }
+            }, 1500);
+        });
+
+        resetFormBtn?.addEventListener("click", () => {
+            successMsg?.classList.add("hidden");
+            if (joinForm) (joinForm as HTMLFormElement).reset();
+            const submitBtn = document.getElementById("submit-join");
+            if (submitBtn && submitBtn instanceof HTMLButtonElement) {
+                submitBtn.innerHTML = "<span>Enter the Flow</span>";
+                submitBtn.style.opacity = "1";
+                submitBtn.disabled = false;
+            }
+        });
+
+        // --- NAVIGATION LOGIC (REMOVED MOBILE MENU) ---
+
+        // --- MOVEMENT CLICK LOGIC (REMOVED - NOW HOVER) ---
+        // User requested to change this to simple hover in the latest step.
+
+        // --- CHATBOT LOGIC ---
+        const btnEn = document.getElementById("lang-en");
+        const btnNe = document.getElementById("lang-ne");
+
+        // Select all translatable elements (text and placeholders)
+        const getTranslatables = () =>
+            document.querySelectorAll(
+                "[data-en][data-ne], [data-en-placeholder][data-ne-placeholder]",
+            );
+
+        function setLanguage(lang: string) {
+            if (lang === "ne") {
+                btnNe?.classList.add("bg-white/20", "text-white");
+                btnNe?.classList.remove("text-gray-400");
+                btnEn?.classList.remove("bg-white/20", "text-white");
+                btnEn?.classList.add("text-gray-400");
+
+                getTranslatables().forEach((el) => {
+                    if (el instanceof HTMLElement) {
+                        // Handle Text
+                        if (el.dataset.ne) {
+                            el.style.transition = "opacity 0.2s ease-in-out";
+                            el.style.opacity = "0";
+                            setTimeout(() => {
+                                el.textContent = el.dataset.ne || "";
+                                el.style.opacity = "1";
+                                // Clear inline style after transition to let CSS hover states work
+                                setTimeout(() => {
+                                    el.style.removeProperty("opacity");
+                                    el.style.removeProperty("transition");
+                                }, 300);
+                            }, 200);
+                        }
+                        // Handle Placeholder
+                        if (
+                            el.dataset.nePlaceholder &&
+                            (el instanceof HTMLInputElement ||
+                                el instanceof HTMLTextAreaElement)
+                        ) {
+                            el.placeholder = el.dataset.nePlaceholder;
+                        }
+                    }
+                });
+            } else {
+                btnEn?.classList.add("bg-white/20", "text-white");
+                btnEn?.classList.remove("text-gray-400");
+                btnNe?.classList.remove("bg-white/20", "text-white");
+                btnNe?.classList.add("text-gray-400");
+
+                getTranslatables().forEach((el) => {
+                    if (el instanceof HTMLElement) {
+                        // Handle Text
+                        if (el.dataset.en) {
+                            el.style.transition = "opacity 0.2s ease-in-out";
+                            el.style.opacity = "0";
+                            setTimeout(() => {
+                                el.textContent = el.dataset.en || "";
+                                el.style.opacity = "1";
+                                // Clear inline style after transition to let CSS hover states work
+                                setTimeout(() => {
+                                    el.style.removeProperty("opacity");
+                                    el.style.removeProperty("transition");
+                                }, 300);
+                            }, 200);
+                        }
+                        // Handle Placeholder
+                        if (
+                            el.dataset.enPlaceholder &&
+                            (el instanceof HTMLInputElement ||
+                                el instanceof HTMLTextAreaElement)
+                        ) {
+                            el.placeholder = el.dataset.enPlaceholder;
+                        }
+                    }
+                });
+            }
+        }
+
+        btnEn?.addEventListener("click", () => setLanguage("en"));
+        btnNe?.addEventListener("click", () => setLanguage("ne"));
+    </script>
+
+    <style>
+        /* Additional custom animations for complex interactions */
+    </style>
+</Layout>
