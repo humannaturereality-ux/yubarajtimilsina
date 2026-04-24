@@ -1,0 +1,270 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { topics } from "../../data/topics";
+
+export function getStaticPaths() {
+    return topics.map((topic) => ({
+        params: { slug: topic.slug },
+        props: { topic },
+    }));
+}
+
+const { topic } = Astro.props;
+
+// Provide default placeholder findings if the topic doesn't have specific ones yet
+const defaultFindings = [
+    {
+        title: "Observation 1", neTitle: "अवलोकन १",
+        text: "The foundation of understanding this topic lies in direct observation without prejudice.",
+        neText: "यस विषयलाई बुझ्ने आधार पूर्वाग्रह बिनाको प्रत्यक्ष अवलोकनमा निहित छ।"
+    },
+    {
+        title: "Observation 2", neTitle: "अवलोकन २",
+        text: "Breaking down the conditioned concepts around this topic reveals its true nature.",
+        neText: "यस विषयको वरपर रहेका कन्डिसन्ड अवधारणाहरूलाई तोड्दा यसको वास्तविक प्रकृति प्रकट हुन्छ।"
+    },
+    {
+        title: "Observation 3", neTitle: "अवलोकन ३",
+        text: "Seeing how this element connects with the totality of the universal play.",
+        neText: "यो तत्व कसरी विश्वव्यापी खेलको समग्रतासँग जोडिन्छ भनेर हेर्दै।"
+    },
+    {
+        title: "Observation 4", neTitle: "अवलोकन ४",
+        text: "Ultimately, all definitions dissolve into the silence of What Is.",
+        neText: "अन्ततः, सबै परिभाषाहरू 'जे छ' को मौनतामा पग्लिन्छन्।"
+    }
+];
+
+const findingsToDisplay = topic.findings || defaultFindings;
+
+const categoryToId = {
+    "The Universal Play of Consciousness": "gan",
+    "Nature (ANU)": "anu",
+    "The Urgency Mirror": "mirror"
+};
+const backLink = categoryToId[topic.category] ? `/#${categoryToId[topic.category]}` : `/#`;
+---
+
+<Layout title={`${topic.title} | HNR Movement`}>
+    <header class="fixed top-0 w-full z-[100] transition-all duration-300 bg-black/80 backdrop-blur-lg border-b border-white/10">
+        <nav class="w-full px-4 md:px-8 py-4 flex items-center justify-between">
+            <a href="/#home" class="flex items-center gap-3 group">
+                <img src="/hnr-logo-new.png" alt="HNR Logo" class="h-8 w-8 md:h-10 md:w-10 invert group-hover:rotate-12 transition-transform duration-500" />
+                <span class="text-lg md:text-2xl font-playfair font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-white to-cyan-200 tracking-[0.15em] uppercase">
+                    HNR
+                </span>
+            </a>
+            <a href={backLink} class="text-sm font-bold text-gray-300 hover:text-white transition-colors border border-white/20 px-4 py-2 rounded-full bg-white/5">
+                ← Back to Flow
+            </a>
+        </nav>
+    </header>
+
+    <main class="pt-32 pb-24 px-6 container mx-auto max-w-4xl min-h-screen flex flex-col">
+        <div class="mb-4">
+            <span class="text-cyan-400 font-mono text-sm uppercase tracking-widest">{topic.category}</span>
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-playfair font-bold text-white mb-6 drop-shadow-lg">
+            {topic.title}
+        </h1>
+        {topic.neTitle && (
+            <h2 class="text-3xl md:text-4xl font-playfair font-bold text-gray-400 mb-8">
+                {topic.neTitle}
+            </h2>
+        )}
+
+        <div class="p-8 border border-white/10 bg-white/5 rounded-2xl mb-16 backdrop-blur-md">
+            <p class="text-xl md:text-2xl text-gray-200 leading-relaxed font-light italic">
+                "{topic.description}"
+            </p>
+        </div>
+
+        <!-- Author's Findings Section (4 Boxes) -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-playfair font-bold text-white mb-8 border-b border-white/10 pb-4" data-en="HNRM's Core Findings" data-ne="HNRM का मुख्य निष्कर्षहरू">
+                HNRM's Core Findings
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {findingsToDisplay.map((finding, index) => {
+                    // Just some varied coloring based on index
+                    const colors = [
+                        "from-cyan-900/30 border-cyan-500/30 text-cyan-300 hover:border-cyan-500/60",
+                        "from-purple-900/30 border-purple-500/30 text-purple-300 hover:border-purple-500/60",
+                        "from-green-900/30 border-green-500/30 text-green-300 hover:border-green-500/60",
+                        "from-yellow-900/30 border-yellow-500/30 text-yellow-300 hover:border-yellow-500/60"
+                    ];
+                    const colorClass = colors[index % 4];
+
+                    return (
+                        <div class={`bg-gradient-to-br to-transparent p-6 rounded-2xl border transition-all flex flex-col ${colorClass}`}>
+                            {finding.image && (
+                                <div class="mb-4 rounded-xl overflow-hidden shadow-lg border border-white/10">
+                                    <img src={finding.image} alt={finding.title} class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500" />
+                                </div>
+                            )}
+                            {finding.video && (
+                                <div class="mb-4 rounded-xl overflow-hidden shadow-lg border border-white/10">
+                                    <video src={finding.video} controls class="w-full h-48 object-cover" />
+                                </div>
+                            )}
+                            <h4 class="text-xl font-bold mb-3" data-en={finding.title} data-ne={finding.neTitle || finding.title}>
+                                {finding.title}
+                            </h4>
+                            <p class="text-gray-300 text-sm leading-relaxed flex-grow" data-en={finding.text} data-ne={finding.neText || finding.text}>
+                                {finding.text}
+                            </p>
+                        </div>
+                    );
+                })}
+            </div>
+        </section>
+
+        <!-- Global Insights Section -->
+        <section class="mt-auto border-t border-white/10 pt-16">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-playfair font-bold text-cyan-300 mb-4" data-en="Global Insights & Views" data-ne="विश्वव्यापी अन्तरदृष्टि र विचारहरू">Global Insights & Views</h3>
+                <p class="text-gray-400 text-lg">
+                    Share your realization, research, or perspective on this topic with the world. 
+                    <br/><span class="text-sm opacity-60">(Currently using local storage for demo purposes. Backend integration required for global sharing.)</span>
+                </p>
+            </div>
+
+            <!-- Comment Form -->
+            <form id="comment-form" class="mb-16 bg-black/40 p-6 md:p-8 rounded-2xl border border-white/10 shadow-2xl">
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Name</label>
+                        <input type="text" id="comment-name" placeholder="Your Name or Alias" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-cyan-500 outline-none transition-colors" required />
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email</label>
+                        <input type="email" id="comment-email" placeholder="For connection & harmony" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-cyan-500 outline-none transition-colors" required />
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Location (Optional)</label>
+                        <input type="text" id="comment-location" placeholder="e.g. Kathmandu, Nepal" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-cyan-500 outline-none transition-colors" />
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Your View / Finding</label>
+                    <textarea id="comment-text" placeholder="Share your insight freely..." class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-cyan-500 outline-none min-h-[150px] transition-colors" required></textarea>
+                </div>
+                <button type="submit" class="w-full md:w-auto bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+                    Post Insight to the Flow
+                </button>
+            </form>
+
+            <!-- Comments List -->
+            <div id="comments-list" class="space-y-6">
+                <!-- Comments injected here -->
+            </div>
+        </section>
+    </main>
+
+    <script is:inline define:vars={{ pageSlug: topic.slug }}>
+        const form = document.getElementById('comment-form');
+        const list = document.getElementById('comments-list');
+        const storageKey = `hnr_comments_${pageSlug}`;
+
+        const loadComments = () => {
+            const comments = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            if (comments.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-10 opacity-50">
+                        <div class="text-4xl mb-4">🌊</div>
+                        <p class="text-gray-400 italic">The space is empty. Be the first to share your reflection.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            list.innerHTML = comments.map(c => `
+                <div class="bg-gradient-to-br from-white/5 to-transparent p-6 md:p-8 rounded-2xl border border-white/10 hover:border-cyan-500/30 transition-all group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-cyan-900/40 border border-cyan-500/20 flex items-center justify-center text-cyan-300 font-bold text-lg group-hover:scale-110 transition-transform">
+                            ${c.name.substring(0, 2).toUpperCase()}
+                        </div>
+                        <div>
+                            <p class="text-lg font-bold text-white flex items-center gap-2">
+                                ${c.name}
+                                ${c.email ? `<a href="mailto:${c.email}" class="text-xs bg-cyan-900/50 text-cyan-300 px-2 py-1 rounded-full hover:bg-cyan-700/50 transition-colors">Connect</a>` : ''}
+                            </p>
+                            <p class="text-xs text-gray-500 font-mono">${c.location ? c.location + ' • ' : ''}${new Date(c.date).toLocaleDateString()}</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed whitespace-pre-wrap ml-0 md:ml-16">${c.text}</p>
+                </div>
+            `).join('');
+        };
+
+        loadComments();
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nameInput = document.getElementById('comment-name');
+            const emailInput = document.getElementById('comment-email');
+            const locInput = document.getElementById('comment-location');
+            const textInput = document.getElementById('comment-text');
+            
+            const newComment = {
+                name: nameInput.value,
+                email: emailInput.value,
+                location: locInput.value,
+                text: textInput.value,
+                date: new Date().toISOString()
+            };
+
+            const comments = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            comments.unshift(newComment);
+            localStorage.setItem(storageKey, JSON.stringify(comments));
+
+            nameInput.value = '';
+            if(emailInput) emailInput.value = '';
+            locInput.value = '';
+            textInput.value = '';
+            loadComments();
+        });
+    </script>
+
+    <!-- Chatbot Decoration -->
+    <div class="fixed bottom-24 right-8 z-[100] animate-bounce-slow pointer-events-none hidden md:block">
+        <div class="bg-black/80 backdrop-blur-md border border-cyan-500/30 text-cyan-200 text-sm font-bold tracking-wider py-2 px-4 rounded-t-2xl rounded-bl-2xl rounded-br-sm shadow-[0_0_15px_rgba(6,182,212,0.3)] whitespace-nowrap">
+            Look-Listen-Learn:
+            <div class="absolute -bottom-2 right-2 w-0 h-0 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-cyan-500/30"></div>
+        </div>
+    </div>
+
+    <!-- HNRM Floating Chatbot -->
+    <script is:inline>
+        window.difyChatbotConfig = {
+            token: 'BbxO124CkP11PSty'
+        }
+    </script>
+    <script
+        is:inline
+        src="https://udify.app/embed.min.js"
+        id="BbxO124CkP11PSty"
+        defer>
+    </script>
+    <style>
+        #dify-chatbot-bubble-button {
+            background-color: #1C64F2 !important;
+            bottom: 28px !important;
+            right: 28px !important;
+            z-index: 99999 !important;
+        }
+        #dify-chatbot-bubble-window {
+            width: 24rem !important;
+            height: 40rem !important;
+            z-index: 99999 !important;
+        }
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-bounce-slow {
+            animation: bounce-slow 3s infinite ease-in-out;
+        }
+    </style>
+</Layout>
